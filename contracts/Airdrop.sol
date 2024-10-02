@@ -31,8 +31,6 @@ contract AirDrop{
         airToken = AirToken(_airToken);
         root = _root;
     }
-
-    
     
 
     function mint(uint _amount, bytes32[] memory _proof, bytes32 _leaf)public {

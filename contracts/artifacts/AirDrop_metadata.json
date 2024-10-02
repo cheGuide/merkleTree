@@ -1,0 +1,173 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_airToken",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_root",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Minted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "airToken",
+				"outputs": [
+					{
+						"internalType": "contract AirToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "_proof",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_leaf",
+						"type": "bytes32"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Airdrop.sol": "AirDrop"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Airdrop.sol": {
+			"keccak256": "0x51d64a9e15ebe39f7ad8498fd8143011cddd84c9504874c0c0df866b50d74f8f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://18cc5b4bf603269f7dde3baf346809e8198e5151bc659dc9c36a7b695ce2af3a",
+				"dweb:/ipfs/QmUeop23vmxizcR1NiMMx8GyRzikjWN2YCePnmvyWiv3vv"
+			]
+		},
+		"lib/openzeppelin-contracts/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"lib/openzeppelin-contracts/ERC20.sol": {
+			"keccak256": "0xc454bf10b8cf29051e881b2d31d70cf673d982019b8bfff0cec63b5ba7912662",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9f6e2d3d881f88a18573d91a38c4e904cf4e293f0da6afa925156a0e2c0c8db6",
+				"dweb:/ipfs/QmeHjmnHdbLWhKpX5FNLeuPrTWexiaeRD6Bju22nL2pzoC"
+			]
+		},
+		"lib/openzeppelin-contracts/Hashes.sol": {
+			"keccak256": "0xabb9364298f6c43b885d18b76878e3aeb845a114e7422b15d2871734d7ceb6c0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d438927f56fae9b7e91cebf1a50a2507c9fd61264ae5af7374668ec5ab839a30",
+				"dweb:/ipfs/QmQun9FkrrtY6241bZzVqmzBrEutx1TidwNBimMMFdp2p4"
+			]
+		},
+		"lib/openzeppelin-contracts/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"lib/openzeppelin-contracts/IERC20Metadata.sol": {
+			"keccak256": "0xb169d17bd1cf8454162688381bf09dfac6c945b095fbd79adcd4fe71dca412a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3f51cfc8caea610acaeadceda7b294b7ec68285c321d12865db9b2aa06c2563b",
+				"dweb:/ipfs/QmSZiDFj8nVGxVaaCFoCf5fA2phcZxP8tEYHnxtetrkx8V"
+			]
+		},
+		"lib/openzeppelin-contracts/MerkleProof.sol": {
+			"keccak256": "0x91efa839bc6d79b59c70cf1db4f0a59d9b2a9b3e117a1aae9ae1dd3ff90adc40",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5cc44f75aa47722476718212eb01b743ecbca0ade5297774099df2850d27c54",
+				"dweb:/ipfs/QmXgBi1QR456jBKPVgtm29c8qQMJKPa25aJyA6tSH2uNaZ"
+			]
+		},
+		"lib/openzeppelin-contracts/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		}
+	},
+	"version": 1
+}
