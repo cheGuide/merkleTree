@@ -33,8 +33,10 @@ contract AirDrop{
     }
     
 
-    function mint(uint _amount, bytes32[] memory _proof, bytes32 _leaf)public {
-        require(MerkleProof.verify(_proof, root, _leaf), "not illegible ");
+    function mint(uint _amount, bytes32[] memory _proof)public {
+        bytes32 leaf= keccak256(abi.encodePacked(msg.sender));
+        
+        require(MerkleProof.verify(_proof, root,  leaf), "not illegible ");
         require(mintsPerUser[msg.sender] == 0, "already minted");
         require(userCount < MAX_USERS, 
         "the number of users exceeds the limit");
