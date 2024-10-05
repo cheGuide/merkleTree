@@ -33,21 +33,19 @@ contract AirDrop{
     }
     
 
-    function mint(uint _amount, bytes32[] memory _proof)public {
+    function mint (bytes32[] memory _proof)public {
         bytes32 leaf= keccak256(abi.encodePacked(msg.sender));
         
+        require(leaf != 0, "wrong address");
         require(MerkleProof.verify(_proof, root,  leaf), "not illegible ");
         require(mintsPerUser[msg.sender] == 0, "already minted");
         require(userCount < MAX_USERS, 
         "the number of users exceeds the limit");
 
-        require(_amount <= MAX_MINT_AMOUNT, 
-        "the minting limit per person has been exceeded");
-
-        mintsPerUser[msg.sender] += _amount;
+        mintsPerUser[msg.sender] += MAX_MINT_AMOUNT;
         userCount += 1;
-        airToken.mint(msg.sender, _amount);
+        airToken.mint(msg.sender, MAX_MINT_AMOUNT);
 
-        emit Minted(msg.sender, _amount);
+        emit Minted(msg.sender, MAX_MINT_AMOUNT);
     }
 }
