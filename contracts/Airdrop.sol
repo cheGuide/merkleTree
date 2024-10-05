@@ -36,7 +36,7 @@ contract AirDrop{
     function mint (bytes32[] memory _proof)public {
         require(msg.sender != address(0), "wrong address");
         
-        bytes32 leaf= keccak256(abi.encodePacked(msg.sender));
+        bytes32 leaf= keccak256(bytes.concat(keccak256(abi.encodePacked(msg.sender,MAX_MINT_AMOUNT))));
                 
         require(MerkleProof.verify(_proof, root,  leaf), "not illegible ");
         require(mintsPerUser[msg.sender] == 0, "already minted");
