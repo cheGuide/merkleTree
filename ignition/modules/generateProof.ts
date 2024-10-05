@@ -1,6 +1,9 @@
 import { MerkleTree } from "merkletreejs";
 const keccak256 = require("keccak256");
 
+// Константа для MAX_MINT_AMOUNT (она должна совпадать с контрактом)
+const MAX_MINT_AMOUNT = 1000;
+
 // Массив адресов для whitelist
 const whitelistAddresses: string[] = [
   "0x1234567890123456789012345678901234567890",
@@ -8,9 +11,9 @@ const whitelistAddresses: string[] = [
   "0x7890789078907890789078907890789078907890",
 ];
 
-// Генерируем хэши для каждого адреса
+// Генерируем двойные хэши для каждого адреса с учётом MAX_MINT_AMOUNT
 const leafNodes = whitelistAddresses.map((addr) =>
-  keccak256(addr.toLowerCase())
+  keccak256(keccak256(addr.toLowerCase() + MAX_MINT_AMOUNT))
 );
 const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
 const root = merkleTree.getRoot().toString("hex"); // Преобразуем в строку в hex формате
@@ -26,8 +29,8 @@ if (!userAddress) {
   process.exit(1);
 }
 
-// Преобразуем адрес в хэш
-const leaf = keccak256(userAddress.toLowerCase());
+// Преобразуем адрес в двойной хэш с учётом MAX_MINT_AMOUNT
+const leaf = keccak256(keccak256(userAddress.toLowerCase() + MAX_MINT_AMOUNT));
 
 // Проверяем, находится ли адрес в whitelist
 if (!whitelistAddresses.includes(userAddress.toLowerCase())) {
