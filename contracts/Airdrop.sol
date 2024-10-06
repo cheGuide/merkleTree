@@ -16,14 +16,14 @@ contract AirToken is ERC20{
 }
 
 contract AirDrop{
-    uint constant MAX_USERS = 100;
-    uint constant MAX_MINT_AMOUNT = 1000;
+    uint256 constant MAX_USERS = 100;
+    uint256 constant MAX_MINT_AMOUNT = 1000;
 
     event Minted(address user, uint amount);
 
     mapping(address => uint) mintsPerUser;
 
-    uint userCount;
+    uint256 userCount;
     AirToken public airToken;
     bytes32 root;
 
